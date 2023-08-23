@@ -37,15 +37,11 @@ module.exports = {
         light_green: { "700_cc": "#5da73acc" },
         amber: { 500: "#fbbc09", "500_99": "#fbbc0999", "500_4c": "#fbbc094c" },
       },
-      fontFamily: { poppins: "Poppins", inter: "Inter" },
+      fontFamily: { inter: "Inter" },
       boxShadow: {
         bs: "0px 4px  4px 0px #0000003f",
         bs2: "0px 6px  4px 0px #0000003f",
         bs1: "0px 7px  7px 0px #0000003f",
-        bs3: "0px 2px  4px -1px #00000011",
-      },
-      backgroundImage: {
-        gradient: "linear-gradient(143deg ,#c19807cc,#5da73acc)",
       },
     },
   },
