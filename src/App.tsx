@@ -4,7 +4,7 @@ import Routes from "./Routes";
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <Routes />
     </GoogleOAuthProvider>
   );

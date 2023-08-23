@@ -1,6 +1,4 @@
 const path = require("path");
-const { mergeConfig, loadConfigFromFile } = require("vite");
-const tsconfigPaths = require("vite-tsconfig-paths");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -8,18 +6,18 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/preset-create-react-app",
   ],
   framework: "@storybook/react",
   core: {
-    builder: "@storybook/builder-vite",
+    builder: "@storybook/builder-webpack5",
   },
-  async viteFinal(config) {
-    const { config: userConfig } = await loadConfigFromFile(
-      path.resolve(__dirname, "../vite.config.ts"),
-    );
-    return mergeConfig(config, {
-      ...userConfig,
-      plugins: [tsconfigPaths.default()],
-    });
+  async webpackFinal(config) {
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      path.resolve(__dirname, "..", "src"),
+      "node_modules",
+    ];
+    return config;
   },
 };
