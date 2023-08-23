@@ -13,9 +13,6 @@ const Home = () => {
         <li>
           <Link to="/login">Login</Link>
         </li>
-        <li>
-          <Link to="/landingpage">LandingPage</Link>
-        </li>
       </ul>
     </div>
   );
